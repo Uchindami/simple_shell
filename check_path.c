@@ -1,8 +1,9 @@
 #include "foundation.h"
 
 /**
- * checkPath - searches $PATH for directory of command
- * @build: input build
+ * checkPath - Searches $PATH for the directory of the command.
+ * @build: Input build.
+ * Return: 1 if found, 0 if not.
  */
 int checkPath(config *build)
 {
@@ -46,9 +47,9 @@ int checkPath(config *build)
 }
 
 /**
- * checkEdgeCases - helper func for check path to check edge cases
- * @build: input build
- * Return: true if found, false if not
+ * checkEdgeCases - Helper function for checkPath to check edge cases.
+ * @build: Input build.
+ * Return: 1 if found, 0 if not.
  */
 int checkEdgeCases(config *build)
 {

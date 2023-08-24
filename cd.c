@@ -1,7 +1,7 @@
 #include "foundation.h"
 
 /**
- * cdFunc - execute cd builtin
+ * cdFunc - exe cd builtin
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
