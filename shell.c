@@ -1,7 +1,7 @@
 #include "foundation.h"
 
 /**
- * shell - Very standard simple shell
+ * shell - simple shell
  * @build: input build
  */
 void shell(config *build)
@@ -60,7 +60,7 @@ void checkAndGetLine(config *build)
 void stripComments(char *str)
 {
 	register int i = 0;
-	_Bool notFirst = false;
+	int notFirst = false;
 
 	while (str[i])
 	{

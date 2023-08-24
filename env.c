@@ -1,7 +1,7 @@
 #include "foundation.h"
 
 /**
- * envFunc - prints the env
+ * envFunc - prints the environment
  * @build: input build
  * Return: Always 1
  */
@@ -12,8 +12,8 @@ int envFunc(config *build)
 }
 
 /**
- * setenvFunc - adds env vars if it does not exist;
- * modify env vars if it does
+ * setenvFunc - adds env variable if it does not exist;
+ * modify env variable if it does
  * @build: input build
  * Return: Always 1
  */
@@ -47,15 +47,15 @@ int setenvFunc(config *build)
 }
 
 /**
- * unsetenvFunc - deletes env vars if exists;
- * will only accept valid vars names
+ * unsetenvFunc - deletes env variable if exists;
+ * will only accept valid variables names
  * @build: input build
  * Return: Always 1
  */
 int unsetenvFunc(config *build)
 {
 	register int foundVar, i = 1;
-	_Bool foundMatch = false;
+	int foundMatch = false;
 
 	while (build->args[i])
 	{

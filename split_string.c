@@ -1,12 +1,12 @@
 #include "foundation.h"
 
 /**
- * splitstr - splits str into an array of strs
- * divided by spaces
+ * splitString - splits string into an array of strings
+ * separated by spaces
  * @build: input build
  * Return: true if able to split, false if not
  */
-_Bool splitString(config *build)
+int splitString(config *build)
 {
 	register unsigned int i = 0;
 	char *tok, *cpy;
@@ -32,14 +32,14 @@ _Bool splitString(config *build)
 }
 
 /**
- * countWords - count num of words in a str
- * @str: input str
- * Return: num of words
+ * countWords - count number of words in a string
+ * @str: input string
+ * Return: number of words
  */
 unsigned int countWords(char *str)
 {
 	register int words = 0;
-	_Bool wordOn = false;
+	int wordOn = false;
 
 	while (*str)
 	{
@@ -60,7 +60,7 @@ unsigned int countWords(char *str)
  * @c: input char
  * Return: true or false
  */
-_Bool isSpace(char c)
+int isSpace(char c)
 {
 	return (c == ' ');
 }

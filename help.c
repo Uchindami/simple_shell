@@ -1,7 +1,7 @@
 #include "foundation.h"
 
 /**
- * helpFunc - retrieves instr on how to use builtin
+ * helpFunc - retrieves instruction on how to use builtin
  * @build: input build
  * Return: Always 1
  */
@@ -19,7 +19,7 @@ int helpFunc(config *build)
 		{NULL, NULL}
 	};
 	register int i = 0, j = 1, argCount = countArgs(build->args);
-	_Bool foundCommand = false;
+	int foundCommand = false;
 
 	if (argCount == 1)
 		return (displayHelpMenu());
@@ -62,7 +62,7 @@ int displayHelpMenu(void)
 
 
 /**
- * helpExit - instrs on how to exit
+ * helpExit - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
@@ -78,7 +78,7 @@ int helpExit(config *build)
 }
 
 /**
- * helpEnv - instrs on how to exit
+ * helpEnv - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */

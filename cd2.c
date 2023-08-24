@@ -40,7 +40,7 @@ int updateOld(config *build)
  * @index: index in linked list of where to insert PWD env var
  * Return: true on success, false on failure
  */
-_Bool updateCur(config *build, int index)
+int updateCur(config *build, int index)
 {
 	static char tmp[BUFSIZE], cwd[BUFSIZE];
 

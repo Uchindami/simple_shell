@@ -24,8 +24,8 @@
 extern char **environ;
 
 /**
- * struct linkedList - linked list data STR
- * @string: env VAR path name
+ * struct linkedList - linked list data structure
+ * @string: environ variable path name
  * @next: pointer to next node
  */
 typedef struct linkedList
@@ -35,12 +35,16 @@ typedef struct linkedList
 } linked_l;
 
 /**
- * struct conf - confg of build settings
- * @env: linked list of local env VARs
- * @envList: array of env VARs to put into execve
- * @args: array of args str
- * @buffer: str buffer of user input
+ * struct configurations - configuration of build settings
+ * @env: linked list of local env variables
+ * @envList: array of env variables to put into execve
+ * @args: array of argument strings
+ * @buffer: string buffer of user input
  * @path: array of $PATH locations
+ * @fullPath: string of path with correct prepended $PATH
+ * @shellName: name of shell (argv[0])
+ * @lineCounter: counter of lines users have entered
+ * @errorStatus: error status of last child process
  */
 typedef struct configurations
 {
@@ -70,21 +74,21 @@ typedef struct builtInCommands
 config *configInit(config *build);
 
 /* built_ins */
-_Bool findBuiltIns(config *build);
+int findBuiltIns(config *build);
 int exitFunc(config *build);
 int historyFunc(config *build);
 int aliasFunc(config *build);
 
 /* cd */
 int cdFunc(config *);
-_Bool cdToHome(config *build);
-_Bool cdToPrevious(config *build);
-_Bool cdToCustom(config *build);
-_Bool updateEnviron(config *build);
+int cdToHome(config *build);
+int cdToPrevious(config *build);
+int cdToCustom(config *build);
+int updateEnviron(config *build);
 
 /* cd2 */
 int updateOld(config *build);
-_Bool updateCur(config *build, int index);
+int updateCur(config *build, int index);
 
 /* env */
 int envFunc(config *build);
@@ -133,13 +137,13 @@ void displayNewLine(void);
 void sigintHandler(int sigint);
 
 /* check_path */
-_Bool checkPath(config *);
-_Bool checkEdgeCases(config *build);
+int checkPath(config *);
+int checkEdgeCases(config *build);
 
 /* split_string */
-_Bool splitString(config *build);
+int splitString(config *build);
 unsigned int countWords(char *s);
-_Bool isSpace(char c);
+int isSpace(char c);
 
 /* string_helpers1 */
 int _strlen(char *s);
@@ -160,7 +164,7 @@ size_t printList(const linked_l *h);
 int searchNode(linked_l *head, char *str);
 size_t list_len(linked_l *h);
 
-
+/* llfuncs2 */
 int deleteNodeAtIndex(linked_l **head, unsigned int index);
 linked_l *generateLinkedList(char **array);
 linked_l *addNodeAtIndex(linked_l **head, int index, char *str);
@@ -170,11 +174,11 @@ char *getNodeAtIndex(linked_l *head, unsigned int index);
 void welcome_screen_1(void);
 void welcome_screen_2(void);
 
-
+/* _realloc */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 
-
+/* free */
 void freeMembers(config *build);
 void freeArgsAndBuffer(config *build);
 void freeArgs(char **args);

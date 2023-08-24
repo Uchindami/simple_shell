@@ -1,11 +1,11 @@
 #include "foundation.h"
 
 /**
- * findBuiltIns - validates if cmd is builtin and exe
+ * findBuiltIns - validates if cmd is builtin and executes
  * @build: input build
  * Return: true if found, false if not
  */
-_Bool findBuiltIns(config *build)
+int findBuiltIns(config *build)
 {
 	register int i = 0;
 	type_b getBuiltIns[] = {
@@ -34,7 +34,7 @@ _Bool findBuiltIns(config *build)
 }
 
 /**
- * exitFunc - exits the app
+ * exitFunc - exits the application
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
@@ -73,7 +73,7 @@ int exitFunc(config *build)
  */
 int historyFunc(config *build)
 {
-	char *str = "Currently in dev\n";
+	char *str = "Currently in development\n";
 
 	(void)build;
 	write(STDOUT_FILENO, str, _strlen(str));
@@ -87,7 +87,7 @@ int historyFunc(config *build)
  */
 int aliasFunc(config *build)
 {
-	char *str = "Currently in dev\n";
+	char *str = "Currently in development\n";
 
 	(void)build;
 	write(STDOUT_FILENO, str, _strlen(str));
